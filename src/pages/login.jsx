@@ -1,7 +1,7 @@
 import React from "react";
 
 function Login() {
-  return <div>Login</div>;
+  return <div>status : belum Login</div>;
 }
 
 export default Login;
