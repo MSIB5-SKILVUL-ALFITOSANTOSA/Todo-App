@@ -53,7 +53,7 @@ function TodoInput() {
   };
 
   return (
-    <form className=" flex flex-row justify-between border-2 border-gray-400 p-2 gap-3 rounded-md">
+    <form className=" flex flex-row justify-between border-2 border-gray-400 p-4 gap-2 rounded-md">
       <input
         className="p-3 w-full border-solid border-gray-500 border-2 rounded-md"
         type="text"
@@ -61,7 +61,7 @@ function TodoInput() {
         onChange={(e) => setTodoInput(e.target.value)}
       />
       <button
-        className="flex flex-row justify-between border-2 border-gray-400 p-3 gap-3  rounded-md"
+        className="flex flex-row justify-between border-2 border-gray-400 p-4  rounded-md"
         onClick={handleClick}
       >
         {isEdit ? "Edit" : "Add"}
