@@ -11,6 +11,7 @@ function TodoProvider({ children }) {
   const [todoInput, setTodoInput] = useState("");
   const [todoEdit, setTodoEdit] = useState({});
   const [isEdit, setIsEdit] = useState("");
+  const [todoComplete, setTodoComplete] = useState("");
 
   return (
     <TodoContext.Provider
@@ -23,6 +24,8 @@ function TodoProvider({ children }) {
         setIsEdit,
         todoEdit,
         setTodoEdit,
+        todoComplete,
+        setTodoComplete,
       }}
     >
       {children}

@@ -40,16 +40,19 @@ function TodoList() {
   };
 
   // untuk memfilter data todo berdasarkan status : active, completed, all
+  const handleComplete = (index) => {
+    let cloneTodos = [...todos];
+    cloneTodos[index].completed = !cloneTodos[index].completed;
+    setTodos([...cloneTodos]);
+  };
 
   const filteredTodos = todos.filter((todo) => {
     if (filter === "All") {
       return true;
     } else if (filter === "Active") {
-      // dikarenakan status todo adalah boolean, maka jika status todo false maka todo tersebut adalah active
-      return !todo.status;
+      return !todo.completed; // Check the 'completed' property for active todos
     } else if (filter === "Completed") {
-      // nah sebaliknya jika status todo true maka todo tersebut adalah completed
-      return todo.status;
+      return todo.completed; // Check the 'completed' property for completed todos
     }
     return true;
   });
@@ -79,7 +82,7 @@ function TodoList() {
           <div
             key={todo.id}
             className={
-              todo.status
+              todo.completed
                 ? "underline p-2 bg-green-400 text-white flex flex-row justify-between border-2 border-gray-400  gap-4 mt-3 rounded-md items-center w-full"
                 : "p-2 border-solid border-b-2  flex flex-row justify-between border-2 border-gray-400  gap-4 mt-3 rounded-md items-center w-full "
             }
@@ -99,6 +102,13 @@ function TodoList() {
                 onClick={() => handleDelete(index)}
               >
                 ⛔
+              </button>
+              {/* Add a checkmark button for completion */}
+              <button
+                className="border-2 border-gray-400 p-2 rounded-md  bg-white"
+                onClick={() => handleComplete(index)}
+              >
+                ✔️
               </button>
             </div>
           </div>
